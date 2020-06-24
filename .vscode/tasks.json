@@ -1,0 +1,36 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Build",
+			"command": "g++",
+			"args": [
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}\\build\\${fileBasenameNoExtension}.exe"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "shell",
+			"label": "Run",
+			"command": "${fileDirname}\\build\\${fileBasenameNoExtension}.exe",
+			"args": [],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"dependsOn": "Build"
+		}
+	]
+}
